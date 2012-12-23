@@ -305,4 +305,4 @@ SoundType	index;
 			rplay(terminal[x]->rplay_fd, sound_table[index]);
 	}
 }
-#endif SOUND
+#endif /*SOUND*/

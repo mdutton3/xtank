@@ -69,4 +69,4 @@ typedef enum
 
 #endif	_sound_h
 
-#endif SOUND
+#endif /*SOUND*/

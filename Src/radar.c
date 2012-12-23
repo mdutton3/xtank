@@ -22,7 +22,7 @@ $Id: radar.c,v 1.1.1.1 1995/02/01 00:25:37 lidl Exp $
 #include "proto.h"
 #ifdef SOUND
 #include "sound.h"
-#endif SOUND
+#endif /*SOUND*/
 
 extern Map real_map;
 
@@ -381,7 +381,7 @@ unsigned int action;
 #endif /* !NO_CAMO */
 #ifdef SOUND
 					  play_owner(v, BLIP_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 					  b = &r->blip[r->num_blips++];
 					  b->x = grid2map(x) + MAP_BOX_SIZE / 4;
 					  b->y = grid2map(y) + MAP_BOX_SIZE / 4;

@@ -29,7 +29,7 @@ $Id: lowlib.c,v 1.1.1.1 1995/02/01 00:25:36 lidl Exp $
 #include "proto.h"
 #ifdef SOUND
 #include "sound.h"
-#endif SOUND
+#endif /*SOUND*/
 
 #ifdef __bsdi__
 #define Angle double
@@ -603,25 +603,25 @@ WeaponNum num;
 	if (w->reload_counter) {
 #ifdef SOUND
 		play_owner(cv, WEAPON_RELOADING_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 		retval = RELOADING;		/* weapon has not reloaded yet */
 	}
 	else if (w->status & WS_no_ammo) {
 #ifdef SOUND
 		play_owner(cv, WEAPON_NO_AMMO_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 		retval = NO_AMMO;		/* weapon has no ammo */
 	}
 	else if (!(w->status & WS_on)) {
 #ifdef SOUND
 		play_owner(cv, WEAPON_OFF_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 		retval = WEAPON_OFF;	/* weapon is off */
 	}
 	else if (cv->heat > 100) {
 #ifdef SOUND
 		play_owner(cv, WEAPON_TOO_HOT_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 		return TOO_HOT;			/* vehicle is too hot to shoot */
 	}
 	else {
@@ -700,7 +700,7 @@ WeaponNum num;
 				break;
 #endif
 		}
-#endif SOUND
+#endif /*SOUND*/
 
 		retval = FIRED;
 		ws = &weapon_stat[(int) w->type];

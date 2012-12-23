@@ -22,7 +22,7 @@ $Id: newradar.c,v 1.1.1.1 1995/02/01 00:25:39 lidl Exp $
 #include "proto.h"
 #ifdef SOUND
 #include "sound.h"
-#endif SOUND
+#endif /*SOUND*/
 
 extern Map real_map;
 

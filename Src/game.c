@@ -24,7 +24,7 @@ $Id: game.c,v 1.1.1.1 1995/02/01 00:25:35 lidl Exp $
 #include "proto.h"
 #ifdef SOUND
 #include "sound.h"
-#endif SOUND
+#endif /*SOUND*/
 
 extern Maze maze;
 extern char *games_entries[];
@@ -387,7 +387,7 @@ Boolean init;
 				  ((b->team == v->team) == settings.si.ultimate_own_goal)) {
 #ifdef SOUND
 					play_all(GOAL_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 					winning_vehicle = v;
 					winning_team = v->team;
 					v->owner->score++;
@@ -433,7 +433,7 @@ Boolean init;
 				if (b->type == GOAL && b->team == v->team) {
 #ifdef SOUND
 					play_all(GOAL_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 					winning_vehicle = v;
 					winning_team = v->team;
 					v->owner->score++;

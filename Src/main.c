@@ -265,7 +265,7 @@ char *argv[];
 
 #ifdef SOUND
 	init_sounds();
-#endif SOUND
+#endif /*SOUND*/
 
 	/* Load descriptions after determining num_vehicle_objs */
 	debug("Loading vehicle and maze descriptions");

@@ -18,7 +18,7 @@ $Id: explosion.c,v 1.1.1.1 1995/02/01 00:25:34 lidl Exp $
 #include "proto.h"
 #ifdef SOUND
 #include "sound.h"
-#endif SOUND
+#endif /*SOUND*/
 
 #define EXP_SPREAD 15
 
@@ -76,7 +76,7 @@ int index;
 		default:
 			play_in_view(loc, DAMAGE_EXPLOSION_SOUND);
 	}
-#endif SOUND
+#endif /*SOUND*/
 	
 	e = eset->list[eset->number++];
 	e->x = (int) loc->x;

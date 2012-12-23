@@ -28,7 +28,7 @@ $Id: vehicle.c,v 1.1.1.1 1995/02/01 00:25:38 lidl Exp $
 #include "proto.h"
 #ifdef SOUND
 #include "sound.h"
-#endif SOUND
+#endif /*SOUND*/
 
 extern int team_color_bright[];
 extern char team_char[];
@@ -577,7 +577,7 @@ Vehicle *killer;				/* can be NULL */
 	if (killer) {
 #ifdef SOUND
 		play_owner(killer, KILLER_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 		points = 1000.0 * victim->vdesc->cost / killer->vdesc->cost;
 		if (!SAME_TEAM(killer, victim)) {
 			if (settings.si.game == STQ_GAME) {

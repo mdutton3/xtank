@@ -30,7 +30,7 @@ $Id: setup.c,v 1.1.1.1 1995/02/01 00:25:37 lidl Exp $
 #include "proto.h"
 #ifdef SOUND
 #include "sound.h"
-#endif SOUND
+#endif /*SOUND*/
 
 
 extern Map real_map;
@@ -255,7 +255,7 @@ int play_game()
 
 #ifdef SOUND
 		play_all(START_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 
 		do {
 			status = animate();
@@ -263,7 +263,7 @@ int play_game()
 
 #ifdef SOUND
 		play_all(END_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 
 		game_running = False;
 

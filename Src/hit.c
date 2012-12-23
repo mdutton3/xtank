@@ -26,7 +26,7 @@ $Id: hit.c,v 1.1.1.2 1995/02/01 00:28:13 lidl Exp $
 #include "proto.h"
 #ifdef SOUND
 #include "sound.h"
-#endif SOUND
+#endif /*SOUND*/
 
 extern Map real_map;
 extern Settings settings;
@@ -182,7 +182,7 @@ int dx, dy;
 
 #ifdef SOUND
 	play_in_view(v1->loc, VEHICLE_HIT_VEHICLE_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 
 #ifdef GDEBUG
 	if (statfile) {
@@ -218,7 +218,7 @@ WallSide dir;
 
 #ifdef SOUND
 	play_in_view(v->loc, VEHICLE_HIT_WALL_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 
 #ifdef GDEBUG
 	int itemp1, itemp2;
@@ -633,7 +633,7 @@ FLOAT dx, dy;
 {
 #ifdef SOUND
 	play_in_view(b->loc, RICOCHET_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 	b->hurt_owner = TRUE;
 	switch (dir) {
 	  case NORTH:
@@ -688,7 +688,7 @@ int damage;
 		invalidate_maps();
 #ifdef SOUND
 		play_in_view_x_y(x, y, TANK_EXPLOSION_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 	}
 	return damage;
 }

@@ -1149,7 +1149,7 @@ static void check_geography(vars)
 	vars->old_us.loc.grid_y == vars->last_y[1]) {
 #ifdef DEBUG_GNAT
       send_msg(RECIPIENT_ALL, OP_TEXT, "Rocking.");
-#endif DEBUG_GNAT
+#endif
       rethink(vars);
     }
 
@@ -1261,7 +1261,7 @@ static void fill_maze(vars, init_x, init_y)
 
 #ifdef DEBUG_GNAT
   send_msg(RECIPIENT_ALL, OP_TEXT, "Filling maze.");
-#endif DEBUG_GNAT
+#endif
 
   top = 1;
   bottom = 0;

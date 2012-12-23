@@ -21,7 +21,7 @@ $Id: disc.c,v 1.1.1.1 1995/02/01 00:25:34 lidl Exp $
 #include "proto.h"
 #ifdef SOUND
 #include "sound.h"
-#endif SOUND
+#endif /*SOUND*/
 
 extern Settings settings;
 
@@ -141,7 +141,7 @@ Vehicle *v;
 	/* display_bullets(OFF); */
 #ifdef SOUND
 	play_in_view(b->loc, DISC_NEW_OWNER_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 	disc_new_owner(b, v);
 	b->owner = v;
 	/* display_bullets(OFF); */
@@ -173,7 +173,7 @@ Boolean delay;
 			if (b->type == DISC && b->owner == v) {
 #ifdef SOUND
 				play_in_view(b->loc, DISC_SOUND);
-#endif SOUND
+#endif /*SOUND*/
 				if (delay)
 					update_disc(b);
 				curspeed = sqrt(b->xspeed * b->xspeed + b->yspeed * b->yspeed);

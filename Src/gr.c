@@ -119,7 +119,7 @@ char *display_name;
 
 #ifdef SOUND
 	init_terminal_sound(t);
-#endif SOUND
+#endif /*SOUND*/
 
 	return 0;
 }

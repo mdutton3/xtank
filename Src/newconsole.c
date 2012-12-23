@@ -24,7 +24,7 @@ $Id: newconsole.c,v 1.1.1.1 1995/02/01 00:25:36 lidl Exp $
 #include "proto.h"
 #ifdef SOUND
 #include "sound.h"
-#endif SOUND
+#endif /*SOUND*/
 
 
 extern Weapon_stat weapon_stat[];
@@ -514,7 +514,7 @@ unsigned int action;
 				case CHBAR:
 #ifdef SOUND
 					console_sound(v, i, item->old_color, color);
-#endif SOUND
+#endif /*SOUND*/
 					display_bar(CONS_WIN, item->x, item->y,
 								item->w, item->h,
 								*item->ival, &item->old_color, color,
@@ -525,7 +525,7 @@ unsigned int action;
 				case CHFBAR:
 #ifdef SOUND
 					console_sound(v, i, item->old_color, color);
-#endif SOUND
+#endif /*SOUND*/
 					display_bar(CONS_WIN, item->x, item->y,
 								item->w, item->h,
 					  (int) (FSCALE * *item->fval), &item->old_color, color,
@@ -539,7 +539,7 @@ unsigned int action;
 			  if (str) {
 #ifdef SOUND
 				  console_sound(v, i, item->old_color, color);
-#endif SOUND
+#endif /*SOUND*/
 				  draw_filled_rect(CONS_WIN,
 					  item->x, item->y, item->w, item->h, DRAW_COPY, BLACK);
 				  draw_text_left(CONS_WIN, item->x, item->y,
