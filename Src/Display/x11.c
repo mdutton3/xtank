@@ -11,6 +11,9 @@ $Author: lidl $
 $Id: x11.c,v 1.1.1.1 1995/02/01 00:25:48 lidl Exp $
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "malloc.h"
 #include <stdio.h>
 #ifdef SVR4

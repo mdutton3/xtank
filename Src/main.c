@@ -14,6 +14,9 @@ $Author: lidl $
 $Id: main.c,v 1.1.1.2 1995/02/01 00:28:17 lidl Exp $
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "malloc.h"
 #include "xtank.h"
 #include "bullet.h"

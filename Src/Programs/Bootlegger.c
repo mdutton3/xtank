@@ -80,6 +80,9 @@ Note:
 	even if you're shot isn't very good.)
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include <xtanklib.h>
 #include "graphics.h"
 #include "gr.h"

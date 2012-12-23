@@ -12,6 +12,9 @@ $Author: lidl $
 $Id: vdesign.c,v 1.1.1.1 1995/02/01 00:25:38 lidl Exp $
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "malloc.h"
 #include "xtank.h"
 #include "graphics.h"

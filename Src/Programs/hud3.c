@@ -28,6 +28,9 @@ $Id: hud3.c,v 1.1.1.1 1995/02/01 00:25:47 lidl Exp $
 * doesn't want the xtanklib.h that's in xtank/Programs.			      *
 \*****************************************************************************/
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "stdio.h"
 #include "xtank.h"
 #include "xtanklib.h"

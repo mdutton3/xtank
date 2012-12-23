@@ -35,6 +35,9 @@
 
 *****************************************************************************/
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include <xtanklib.h>
 #include <tanktypes.h>
 #include <lowlib.h>

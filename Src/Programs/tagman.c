@@ -25,6 +25,9 @@ $Id: tagman.c,v 1.1.1.1 1995/02/01 00:25:47 lidl Exp $
 
 #define HAS_TURRET4
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "xtanklib.h" 
 #include "special.h"
 #include "xtank.h"

@@ -13,6 +13,9 @@ $Id: players.c,v 1.1.1.1 1995/02/01 00:25:37 lidl Exp $
 
 #define MAX_LENGTH 255
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include <stdio.h>
 #include <sys/param.h>
 #include "proto.h"

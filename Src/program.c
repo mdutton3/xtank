@@ -11,6 +11,9 @@ $Author: lidl $
 $Id: program.c,v 1.1.1.2 1995/02/01 00:28:09 lidl Exp $
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "malloc.h"
 #include <assert.h>
 #include "xtanklib.h"

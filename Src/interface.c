@@ -11,6 +11,9 @@ $Author: lidl $
 $Id: interface.c,v 1.1.1.1 1995/02/01 00:25:35 lidl Exp $
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "tanklimits.h"
 #include "malloc.h"
 #include "xtank.h"

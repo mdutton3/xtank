@@ -11,6 +11,9 @@ $Author: lidl $
 $Id: menu.c,v 1.1.1.1 1995/02/01 00:25:36 lidl Exp $
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "sysdep.h"
 #include "malloc.h"
 #include <stdio.h>

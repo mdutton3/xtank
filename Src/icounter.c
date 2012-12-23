@@ -12,6 +12,9 @@ $Author: lidl $
 $Id: icounter.c,v 1.1.1.1 1995/02/01 00:25:35 lidl Exp $
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "malloc.h"
 #include "sysdep.h"
 #include "icounter.h"
