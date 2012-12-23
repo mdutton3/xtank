@@ -417,7 +417,8 @@ Thread *thread_setup()
 	if (status != 0) {
 		perror("pthread_setschedparam");
 		printf("If OSF/Alpha, do you have real-time [RT] subsets?\n");
-		exit(17);
+		printf("If Linux, do you have the appropriate permissions?\n");
+		printf("Continuing anyways...?\n");
 	}
 	return curthd;
 }
