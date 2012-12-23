@@ -303,8 +303,6 @@ All *allp;
 static FLOAT frand(maxr)
 FLOAT maxr;						/* maximum value */
 {
-	extern long random();
-
 	return (random() & 0xffff) * maxr / 0x10000;
 }
 
