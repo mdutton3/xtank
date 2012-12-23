@@ -31,7 +31,8 @@ $Id: tagman.c,v 1.1.1.1 1995/02/01 00:25:47 lidl Exp $
 #include "string.h"
 #include "math.h"
 #include "stdio.h"
-#include "varargs.h"
+//#include "varargs.h"
+#include "stdarg.h"
 
 #include "assert.h"
 
@@ -337,7 +338,6 @@ Environment;
 #else
 # define PROTO(s) ()
 #endif
-# define PROTO(s) ()  /*HAK*/
 
 /* tagman.c */
 static int HuntAndKill PROTO((Environment *pEnv));
@@ -389,7 +389,7 @@ static void TagmanMain PROTO((void));
 static int FriendliesReplenishing PROTO((Environment *pEnv, Location    *pLoc));
 static void PositionTurret PROTO((Environment *pEnv, int iTurret));
 static void Frantic PROTO((Environment *pEnv));
-static void BarfBarf();
+static void BarfBarf PROTO((Byte recipent, ...));
 static void VehicleInfo2Message PROTO((Vehicle_info *pstVehicle, Byte *pbBuffer));
 static void Message2VehicleInfo PROTO((Byte *pbBuffer, Vehicle_info *pstVehicle));
 static FLOAT GetDodgeSpeed PROTO((Environment *pEnv, FLOAT fDefault));
@@ -2715,15 +2715,13 @@ DOUBLE xs2, ys2;					/* speeds of second vector */
 }
 
 
-static void BarfBarf(recipent, va_alist)
-Byte recipent;
-va_dcl
+static void BarfBarf(Byte recipent, ...)
 {
 	va_list args;
 	char msg[88];
 	char *fmt;
 
-	va_start(args);
+	va_start(args, recipent);
 	fmt = va_arg(args, char *);
 	(void) vsprintf(msg, fmt, args);
 	send_msg(recipent, OP_TEXT, msg);
