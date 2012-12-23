@@ -33,7 +33,6 @@ $Id: interface.c,v 1.1.1.1 1995/02/01 00:25:35 lidl Exp $
 #endif
 #include "clfkr.h"
 
-extern char *strdup();
 
 extern int num_veh;
 
@@ -1840,7 +1839,6 @@ int batch;
 		"Program loaded", "Improper filename", "Compiler errors",
 		"Linker errors", "Can't read output", "Can't parse symbol table",
 		"Missing description"};
-	char *strdup();
 	char *ptr;
 
 #if !defined(hpux) && !defined(i860) && !defined(NeXT) && !defined(__alpha)

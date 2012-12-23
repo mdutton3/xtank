@@ -292,11 +292,6 @@ static void cleanup(a) Z;
 static struct allp *setup(a) Z;
 {
 	int i, j;
-#if defined(__alpha)
-	extern void *calloc();
-#else
-	extern char *calloc();
-#endif
 
 #ifndef lint
 	a = (struct allp *) calloc(1, sizeof(struct allp));

@@ -97,11 +97,6 @@ char *argv[];
 	{
 		extern char *network_error_str[];
 
-#if !defined(_IBMR2) && !defined(__alpha)
-		extern char *malloc();
-
-#endif
-
 		/* Get environment variables */
 		debug("Getting environment variables");
 		get_environment();

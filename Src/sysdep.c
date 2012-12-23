@@ -17,7 +17,6 @@ $Id: sysdep.c,v 1.1.1.2 1995/02/01 00:28:26 lidl Exp $
 #if defined(ultrix) || defined(sequent) || defined(hp300) || defined(sparc) || defined(NeXT)
 #include <stdio.h>
 
-char *strdup(s1)
 char *s1;
 {
 	char *newstr = NULL;

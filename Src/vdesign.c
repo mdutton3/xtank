@@ -965,7 +965,6 @@ init_vdesign()
 {
 	int i;
 	char temp[100];
-	char *strdup();
 	char *flgtmp;
 
 	for (i = 0; i < VMAX_WEAPONS-1; i++) {

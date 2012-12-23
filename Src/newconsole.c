@@ -157,7 +157,6 @@ char *record;
 	char *cp;
 	int idx;
 	crecord *crec = (crecord *) record;
-	extern char *strdup();
 	static int nrec = 0;
 
 	for (i = 0; i < sizeof(console_raw_strs) / sizeof(char *); i++) {
