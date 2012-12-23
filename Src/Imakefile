@@ -126,6 +126,11 @@
         ARCH_OBJS = flush_hp9k8.o
 # endif
 #endif
+
+#ifdef LinuxArchitecture
+    SYS_LIBRARIES = -lpthread
+#endif
+
 #ifdef MultimaxArchitecture
         CCOPTIONS = -g -O -q nosb -q ext=parallel
 #endif

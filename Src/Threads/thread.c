@@ -17,8 +17,16 @@ $Id: thread.c,v 1.1.1.2 1995/02/01 00:28:36 lidl Exp $
 #include <assert.h>
 #include <errno.h>
 #include "proto.h"
+#include <stdlib.h>
 
 #ifdef SVR4
+#include <stdio.h>
+#endif
+
+#ifdef THREAD_POSIX
+#include <pthread.h>
+#include <sched.h>
+
 #include <stdio.h>
 #endif
 
@@ -391,6 +399,8 @@ Thread *thd;
 
 #ifdef THREAD_POSIX
 
+typedef void * (*pthread_startroutine_t) (void *);
+
 /*
 ** POSIX threading code -- at least a rough cut at a first pass,
 ** provided by bird@sevior.triumf.ca (Tony Ambardar)
@@ -399,12 +409,13 @@ Thread *thd;
 Thread *thread_setup()
 {
 	int status;
+    struct sched_param sp = { .sched_priority = sched_get_priority_max(SCHED_FIFO) };
 
 	curthd = (pthread_t *) malloc(sizeof(pthread_t));
 	*curthd = pthread_self();
-	status=pthread_setscheduler(*curthd,SCHED_FIFO,PRI_FIFO_MAX);
+	status=pthread_setschedparam(*curthd,SCHED_FIFO,&sp);
 	if (status != 0) {
-		perror("pthread_setscheduler");
+		perror("pthread_setschedparam");
 		printf("If OSF/Alpha, do you have real-time [RT] subsets?\n");
 		exit(17);
 	}
@@ -414,19 +425,19 @@ Thread *thread_setup()
 Thread *thread_init(buf, bufsize, func)
 char *buf;  /* NOTE: stack is allocated within pthreads */
 unsigned int bufsize;
-void (*func)();
+pthread_startroutine_t func;
 {
 	pthread_attr_t prog_attr;
 	int status;
+    struct sched_param sp = { .sched_priority = sched_get_priority_min(SCHED_FIFO) };
 
-	pthread_attr_create(&prog_attr);
-	pthread_attr_setinheritsched(&prog_attr,PTHREAD_DEFAULT_SCHED);
-	pthread_attr_setsched(&prog_attr,SCHED_FIFO);
-	pthread_attr_setprio(&prog_attr,PRI_FIFO_MIN);
+	pthread_attr_init(&prog_attr);
+	pthread_attr_setinheritsched(&prog_attr,PTHREAD_EXPLICIT_SCHED);
+	pthread_attr_setschedpolicy(&prog_attr,SCHED_FIFO);
+	pthread_attr_setschedparam(&prog_attr,&sp);
 	pthread_attr_setstacksize(&prog_attr, (long) STACK_SIZE);
 
-	status=pthread_create((Thread *) buf, prog_attr,
-	(pthread_startroutine_t) func, (pthread_addr_t) 0);
+	status=pthread_create((Thread *) buf, &prog_attr, (pthread_startroutine_t) func, (void*) 0);
 	if (status != 0) {
 		perror("pthread_create");
 		printf("Couldn't create a thread!\n");
@@ -444,8 +455,8 @@ Thread *newthd;
 	if (curthd != newthd) {
 		oldthd = curthd;
 		curthd = newthd;
-		pthread_setprio(*oldthd,PRI_FIFO_MIN);
-		pthread_setprio(*newthd,PRI_FIFO_MAX);
+		pthread_setschedprio(*oldthd,sched_get_priority_min(SCHED_FIFO));
+		pthread_setschedprio(*newthd,sched_get_priority_max(SCHED_FIFO));
 		pthread_yield();
 		pthread_testcancel();
 		return oldthd;
@@ -459,7 +470,7 @@ Thread *thd;
 	int status;
 
 	pthread_cancel(*thd);
-	pthread_detach(thd);
+	pthread_detach(*thd);
 	if (status != 0) {
 		perror("pthread_cancel");
 		printf("Couldn't kill a thread\n");

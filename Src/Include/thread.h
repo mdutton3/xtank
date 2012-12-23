@@ -111,6 +111,11 @@ typedef ucontext_t Thread;
 
 #endif /* THREAD_SVR4 */
 
+#ifdef THREAD_POSIX
+#include <pthread.h>
+typedef pthread_t Thread; /* Opaque pointer type */
+#endif
+
 #if !defined(THREAD_MP) && !defined(THREAD_SUNLWP) && !defined(THREAD_SVR4) \
 	&& !defined(THREAD_POSIX)
 typedef char Thread;
