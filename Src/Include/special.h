@@ -157,7 +157,7 @@ Radar;
 
   typedef struct {
 	  SpecialStatus status;		/* status of the special */
-	  int (*proc) ();		/* function to call for special */
+	  SpecialStatus (*proc) (void *v, char *record, unsigned int action);		/* function to call for special */
 	  void *record;			/* pointer to special structure */
 	  int damage_flag;
   }
