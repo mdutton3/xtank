@@ -5,7 +5,7 @@
 # $Author: lidl $
 # $Id: xtank,v 1.1.1.2 1995/02/01 00:29:42 lidl Exp $
 #
-XTANK_DIR=/usr/obj/xtank
+XTANK_DIR=$(cd $(dirname $0) && pwd)/../
 XTANK_VEHICLES=Vehicles
 XTANK_MAZES=Mazes
 XTANK_PROGRAMS=Programs
@@ -47,6 +47,11 @@ if [ "X$arch" = "Xmips" -a -f /etc/ris ]; then
 fi
 if [ "X$arch" = "Xi860" ]; then
 	arch="intel860"
+fi
+
+echo arch $arch  $XTANK_DIR
+if [ "X$arch" = "Xx86_64" ]; then
+    arch="linux"
 fi
 
 if [ "X$FAKEIT" = "X" ]; then
