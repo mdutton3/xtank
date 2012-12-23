@@ -44,11 +44,6 @@ static double temp_drem;
 #define drem(a,b) (((double)(a))-(int)((((double)(a))/((double)(b)))+((double) 0.5))*(b))
 #endif
 
-/* If you have no cbrt in your library, try this */
-#if defined(sequent) || defined(__hpux) || defined(linux)
-#define cbrt(n) pow(n, 1.0/3.0)
-#endif
-
 #if defined(mips) && defined(ultrix)
 /* DEC bites again - broken math.h */
 extern double fmod(), drem();
